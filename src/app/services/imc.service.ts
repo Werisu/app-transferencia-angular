@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,9 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class ImcService {
 
-  private listaDePessoas: any[];
+private listaDePessoas: any[];
+private url = 'http://localhost:3000/transferencias';
 
-constructor() { this.listaDePessoas = [] }
+constructor(private httpClient: HttpClient) {
+  this.listaDePessoas = []
+}
 
 get pessoas(){
   return this.listaDePessoas;

@@ -1,4 +1,7 @@
+import { Transferencia } from './../models/transferencia.model';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +9,9 @@ import { Injectable } from '@angular/core';
 export class TransferenciaService {
 
   private listaDeTrasferencias: any[];
+  private url = 'http://localhost:3000/transferencias';
 
-constructor() {
+constructor(private httpCliente: HttpClient) {
   this.listaDeTrasferencias = [];
  }
 
@@ -15,9 +19,16 @@ get transferencias(){
   return this.listaDeTrasferencias;
 }
 
-adicionar(transferencia: any){
+todas(): Observable<Transferencia[]>{
+  return this.httpCliente.get<Transferencia[]>(this.url); // trasnferencia response
+}
+
+adicionar(transferencia: Transferencia): Observable<Transferencia>{
     this.hitradar(transferencia);
-    this.listaDeTrasferencias.push(transferencia);
+
+    let response = this.httpCliente.post<Transferencia>(this.url, transferencia);
+
+    return response;
 }
 
 private hitradar(transferencia: any){

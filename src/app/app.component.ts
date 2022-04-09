@@ -10,14 +10,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'myApp';
 
-  constructor(private transferenciaService: TransferenciaService, private imcService: ImcService){}
-
-  transferir($event: any){
-    this.transferenciaService.adicionar($event);
-  }
-
-  confirmar($event: any){
-    console.log($event);
-    this.imcService.adiciona($event)
-  }
+  constructor(){}
 }
