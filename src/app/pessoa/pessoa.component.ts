@@ -1,3 +1,4 @@
+import { ImcService } from './../services/imc.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -7,11 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PessoaComponent implements OnInit {
 
-  @Input() pessoas: any[] = [];
+  pessoas: any[] = [];
 
-  constructor() { }
+  constructor(private imcService: ImcService) { }
 
   ngOnInit(): void {
+    this.pessoas = this.imcService.pessoas;
   }
 
 }

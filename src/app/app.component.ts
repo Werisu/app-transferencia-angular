@@ -1,3 +1,5 @@
+import { ImcService } from './services/imc.service';
+import { TransferenciaService } from './services/transferencia.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,18 +10,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'myApp';
 
-  transferencias: any[] = [];
-  pessoas: any[] = [];
+  constructor(private transferenciaService: TransferenciaService, private imcService: ImcService){}
 
   transferir($event: any){
-    console.log($event);
-    const transferencia = {...$event, data: new Date()};
-    this.transferencias.push(transferencia);
+    this.transferenciaService.adicionar($event);
   }
 
   confirmar($event: any){
     console.log($event);
-    this.pessoas.push($event);
-
+    this.imcService.adiciona($event)
   }
 }
