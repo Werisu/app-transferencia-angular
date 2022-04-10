@@ -1,0 +1,17 @@
+header{
+  background-color: var(--primary);;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  a{
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--cinza-claro);
+  }
+
+  .ativo{
+    display: none;
+  }
+}
