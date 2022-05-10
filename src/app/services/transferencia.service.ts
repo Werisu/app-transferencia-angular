@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class TransferenciaService {
 
   private listaDeTrasferencias: any[];
-  private url = 'http://localhost:3000/transferencias';
+  private url = 'https://api-w1.herokuapp.com/transferencias';
 
 constructor(private httpCliente: HttpClient) {
   this.listaDeTrasferencias = [];
